@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import dotenv from 'dotenv'
+
 
 const questions = [
   "How often have you felt stressed in the past week?",
@@ -114,4 +114,5 @@ const ScreenerPage = ({ onBack }) => {
 };
 
 export default ScreenerPage;
+
 
