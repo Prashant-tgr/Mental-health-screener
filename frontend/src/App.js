@@ -13,6 +13,8 @@ const App = () => {
   const [input, setInput] = useState('');
   const [moodHistory, setMoodHistory] = useState([]);
   const [showScreener, setShowScreener] = useState(false);
+  const API_BASE_URL = process.env.REACT_APP_API_URL;
+
 
   const sendMessage = async () => {
     if (!input.trim()) return;
@@ -21,7 +23,7 @@ const App = () => {
     setMessages(prev => [...prev, userMessage]);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/chat', { message: input });
+      const response = await axios.post(`${API_BASE_URL}/api/chat`, { message: input });
       const botMessage = { sender: 'bot', text: response.data.reply };
       
       setMessages(prev => [...prev, botMessage]);
