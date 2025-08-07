@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import dotenv from 'dotenv'
 
 const questions = [
   "How often have you felt stressed in the past week?",
@@ -12,6 +13,8 @@ const ScreenerPage = ({ onBack }) => {
   const [answers, setAnswers] = useState(Array(questions.length).fill(""));
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
+  const API_BASE_URL = process.env.REACT_APP_API_URL;
+
 
   const handleAnswerChange = (index, value) => {
     const updated = [...answers];
@@ -111,3 +114,4 @@ const ScreenerPage = ({ onBack }) => {
 };
 
 export default ScreenerPage;
+
